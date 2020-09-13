@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace Novi.Art
@@ -22,6 +24,7 @@ namespace Novi.Art
             // 3 services.AddRazorPages();
             // 4 services.AddControllersWithViews();
             services.AddControllersWithViews(); // Use controllers and views in our application
+       
         }
 
         // Middleware:
@@ -34,6 +37,14 @@ namespace Novi.Art
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
+
+            // If you want to use static files from outside the wwwroot-folder
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
+            //     "MyStaticfolesFolder")), RequestPath = "MyStaticfolesFolder"
+            //});
 
             app.UseRouting();
 
