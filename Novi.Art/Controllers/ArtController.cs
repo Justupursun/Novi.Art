@@ -23,10 +23,12 @@ namespace Novi.Art.Controllers
         //    return View();
         //}
 
-        public List<ArtModel> GetAllArts()
+ //       public List<ArtModel> GetAllArts()
+ public ViewResult GetAllArts()
         {
             //   return "All pieces of art";
-            return _artRepository.GetAllArt();
+            var Data = _artRepository.GetAllArt();
+            return View();
         }
 
         public ArtModel GetArt(int id)
