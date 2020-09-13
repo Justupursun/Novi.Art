@@ -17,7 +17,10 @@ namespace Novi.Art
         // ConfigureServices: Add all the dependencies
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddMvc();
+            // 1 services.AddControllers();
+            // 2 services.AddMvc();
+            // 3 services.AddRazorPages();
+            // 4 services.AddControllersWithViews();
             services.AddControllersWithViews(); // Use controllers and views in our application
         }
 
