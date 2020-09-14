@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,14 +25,15 @@ namespace Novi.Art
             // 3 services.AddRazorPages();
             // 4 services.AddControllersWithViews();
             services.AddControllersWithViews(); // Use controllers and views in our application
-       
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
         }
-
-        // Middleware:
-        // This pipeline processes the requests and responses
-        // This method gets called by the runtime. 
-        // Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            // Middleware:
+            // This pipeline processes the requests and responses
+            // This method gets called by the runtime. 
+            // Use this method to configure the HTTP request pipeline.
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
