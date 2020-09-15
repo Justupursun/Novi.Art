@@ -28,30 +28,42 @@
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Home"></a>
+                            <a class="nav-link text-dark" href="/Home/Index"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Aboutus">About</a>
+                            <a class="nav-link text-dark" href="/Home/Aboutus">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Contactus">Contact</a>
+                            <a class="nav-link text-dark" href="/home/Contactus">Contact</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/art/getallart">All art</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    @RenderSection("breadcrumb", required: false)
+
+
+
     <main role="main">
         @RenderBody()
     </main>
     <footer class="border-top footer text-muted text-center">
         <div class="container">
-            Copyright  &copy; Novi.Art @DateTime.Now.Year
-            @*<a href="mailto:martijnterstappen@gmail.com">martijnterstappen@gmail.com</a>
-            *@
-            @*<cutom-email my-email="nitish@webgentle.com"></cutom-email>*@
+            <span>Copyright  &copy; Novi.Art </span>
+            <a href="mailto:martijnterstappen@gmail.com">info@noviart.nl</a>
         </div>
     </footer>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    @RenderSection("scripts", required: false);
+
 </body>
 </html>

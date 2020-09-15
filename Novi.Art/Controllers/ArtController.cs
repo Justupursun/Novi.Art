@@ -24,17 +24,19 @@ namespace Novi.Art.Controllers
         //}
 
  //       public List<ArtModel> GetAllArts()
- public ViewResult GetAllArts()
+ public ViewResult GetAllArt()
         {
             //   return "All pieces of art";
-            var Data = _artRepository.GetAllArt();
-            return View();
+            var data = _artRepository.GetAllArt();
+            return View(data);
         }
 
-        public ArtModel GetArt(int id)
+        public ViewResult GetArt(int id)
         {
-            return _artRepository.GetArtById(id);
+            var data = _artRepository.GetArtById(id);
+            return View(data);
         }
+
 
         public List<ArtModel> SearchArt(string artName, string artistName)
         {
