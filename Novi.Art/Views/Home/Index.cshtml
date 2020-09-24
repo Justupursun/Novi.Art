@@ -9,18 +9,54 @@
     </nav>
 }
 
+@*@{ 
+    var artinfo = ViewData["art"] as ArtModel; // Cast the variable into a ArtModel-type
+
+}*@
+
+@{ 
+    //  ViewData["Title"] = "Home";
+    var art = ViewData["Art"] as ArtModel;
+}
 <section class="jumbotron text-center">
     <div class="container">
+
         <h1>Welcome to Novi.Art</h1>
-        <p class="lead text-muted">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-            <a href="#" class="btn btn-primary my-2">Search Art</a>
-        </p>
-    </div>
+
+        @*<environment names="Development">*@
+            @*<environment include="Development">
+                <h3>Development</h3>
+            </environment>
+
+            <environment exclude="Development">
+                <h3>Production</h3>
+            </environment>*@
+
+            @*<h1>@ViewData["Title"] </h1>
+        <h1>@ViewData["CustomProperty"]</h1>
+        <h1>Id = @art.Id</h1>
+        <h1>Title = @art.Id</h1>
+        <h1>Artist = @art.Id</h1>*@
+
+            @*// ViewBag
+        <h1>@ViewBag.Type.Id</h1>*@
+
+            @*// ViewData
+        <h1>@ViewData["property1"]</h1>*@
+
+            @*<h1>Id - @artinfo.Id</h1>
+        <h1>Artist - @artinfo.Artist</h1>*@
+
+            <p class="lead text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Search Art</a>
+            </p>
+</div>
 </section>
+
 <div class="py-5 bg-light">
     <div class="container">
         <h3>Top Art</h3>

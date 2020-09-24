@@ -24,7 +24,7 @@ namespace Novi.Art.Repository
             return Datasource().Where(x => x.Title.Contains(title) && x.Artist.Contains(artist)).ToList();
         }
 
-        // Data declared ina private methode
+        // Data declared in a private methode
         private List<ArtModel> Datasource()
         {
             return new List<ArtModel>()

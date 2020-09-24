@@ -21,10 +21,10 @@ namespace Novi.Art.Models
 
         public bool InStock { get; set; }
 
-        //public string HireFrom { get; set; }
+        public string HireFrom { get; set; }
 
-        //public string HireTill { get; set; }
- 
+        public string HireTill { get; set; }
+
         public string Category { get; set; }
 
         //public int StudentId { get; set; }

@@ -57,6 +57,9 @@ namespace Novi.Art
                 // and adds the default route {controller=Home}/{action=Index}/{id?}.
 
                 endpoints.MapDefaultControllerRoute();
+                //endpoints.MapControllerRoute(
+                //    name: "Default",
+                //    pattern: "artapp/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

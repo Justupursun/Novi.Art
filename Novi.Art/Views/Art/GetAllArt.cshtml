@@ -1,4 +1,19 @@
-﻿@model IEnumerable<ArtModel>
+﻿@{
+    ViewData["Title"] = "All art";
+}
+
+@*@model IEnumerable<ArtModel>*@
+
+     @*pass more parameters*@
+@*@{
+
+    var parameters = new Dictionary<string, string>()
+    {
+        {"name", "Martijn" },
+        {"company", "Terstappen.nl" },
+        {"appName", "NoviArt" }
+    };
+}*@
 
 <div class="container">
     <h3 class="display-4">All art</h3>
@@ -16,13 +31,19 @@
                         <p class="card-text">@art.Description</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/art/getart/@art.Id" class="btn btn-sm btn-outline-secondary">View details</a>
+                                @*<a asp-controller="Art" asp-action="GetArt" asp-route-id="@art.Id" asp-all-route-data="@parameters" class="btn btn-sm btn-outline-secondary">View details</a>*@
+                                
+                                @*<a asp-controller="Art" asp-action="GetArt" asp-route-id="@art.Id"
+        class="btn btn-sm btn-outline-secondary">View details</a>*@
+                                <a asp-route="artDetailsRoute" asp-route-id="@art.Id"
+                                   class="btn btn-sm btn-outline-secondary">View details</a>
+
                             </div>
                             <small class="text-muted">@art.Artist</small>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             @*<label for="hirefrom">Hire from</label>
-                            <label for="hiretill">Hire till</label>*@
+                                <label for="hiretill">Hire till</label>*@
                             <input class="form-control" type="date" name="hirefrom" value="@DateTime.Now.ToShortDateString()" />
                             <input class="form-control" type="date" name="hiretill" value="@DateTime.Now.AddMonths(1).ToShortDateString()" />
                         </div>
@@ -36,4 +57,4 @@
 
 
     </div>
-    </div>
+</div>

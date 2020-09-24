@@ -1,11 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+
+}
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Novi.Art</title>
+    <title>@ViewData["Title"] | Novi.Art</title>
     <link href="~/css/Site.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <environment include="Development">
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        @*<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />*@
+        <link rel="stylesheet" 
+              href="http://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              integrity="" 
+              crossorigin="anonymous">
+    </environment>
 </head>
 <body>
     <header>
@@ -28,16 +44,20 @@
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Index"></a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Aboutus">About</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">About</a>
+                            @*<a class="nav-link text-dark" href="/home/aboutus">About</a>*@
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home/Contactus">Contact</a>
+                            <a class="nav-link text-dark" asp-controller="home" asp-action="contactus">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/art/getallart">All art</a>
+                            <a class="nav-link text-dark" asp-controller="art" asp-action="getallart">All art</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="art" asp-action="AddNewArt">Add new art</a>
                         </li>
                     </ul>
                 </div>
@@ -58,11 +78,16 @@
             <a href="mailto:martijnterstappen@gmail.com">info@noviart.nl</a>
         </div>
     </footer>
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/jquery.min.js"></script>
+    </environment>
 
-    <script src="~/lib/jquery/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   
+
     @RenderSection("scripts", required: false);
 
 </body>

@@ -1,0 +1,48 @@
+﻿@model Novi.Art.Models.ArtModel
+@{
+    ViewData["Title"] = "Add new Art";
+}
+
+ <div class="container">
+     <h3 class="display-4">Add new Art</h3>
+     <form method="post" asp-controller="Art" asp-action="AddNewArt">
+         <div class="form-group">
+             <label asp-for="Title"></label>
+             <input asp-for="Title" class="form-control" />
+         </div>
+
+         <div class="form-group">
+             <label asp-for="Artist"></label>
+             <input asp-for="Artist" class="form-control" />
+         </div>
+
+         <div class="form-group">
+             <label asp-for="Description"></label>
+             <textarea asp-for="Description" class="form-control"></textarea>
+         </div>
+
+         <div class="form-group">
+             <label asp-for="Price"></label>
+             <input asp-for="Price" class="form-control" />
+         </div>
+
+         @*<div class="form-group">
+            <label asp-for="ImageUrl"></label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="InStock"></label>
+            <input asp-for="InStock" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <input asp-for="Category" class="form-control" />
+        </div>*@
+
+         <div class="form-group">
+             <input type="submit" value="Add Art" class="btn btn-primary" />
+         </div>
+     </form>
+ </div>
